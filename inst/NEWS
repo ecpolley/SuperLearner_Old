@@ -1,0 +1,96 @@
+Information on the SuperLearner package.
+
+------------------------
+Version: 1.1-19
+Date: 2010-06-18
+
+* fixed observation weights in SuperLearner.hazard()
+* added CV.SuperLearner.hazard()
+* fixed bug in CV.SuperLearner when only 1 variable
+
+------------------------
+Version: 1.1-18
+Date: 2010-04-21
+
+* added latex.summary.CV.SuperLearner().  method for class summary.CV.SuperLearner() to fit with the latex function from Hmisc
+* removed SD from the summary.CV.SuperLearner() to avoid confusion with SE
+* added nodesize argument to SL.randomForest()
+* changed cv.glmnet() to .cv.glmnet() to avoid conflict with the function of the same name in the glmnet package
+
+------------------------
+Version: 1.1-17
+Date: 2010-04-13
+
+* fixed screen.glmnet to have a default value for obsWeights to be passed into cv.glmnet
+* added SL.mars (based on mda::mars) and SL.earth (based on earth::earth)
+* fixed error for cv.risk when an error in algorithm
+* fixed SL.caret for binomial data to use Accuracy instead of RMSE
+
+------------------------
+Version: 1.1-16
+Date: 2010-04-11
+
+* added SL.caret.  a wrapper for the train function in the caret package.  The default method is "rf" but this can be easily changed (see SL.caret.rpart and the documentation in caret for details)
+* added standard errors for the risk estimate to the summary.CV.SuperLearner()
+
+------------------------
+Version: 1.1-15
+Date: 2010-04-09
+
+* added obsWeights to the following built-in wrappers:
+SL.bayesglm
+SL.cforest
+SL.DSA
+SL.gam
+SL.gbm.1
+SL.gbm.2
+SL.glm
+SL.glmnet
+SL.loess
+SL.nnet
+SL.polymars
+SL.rpart
+SL.step.plr
+SL.mean
+
+------------------------
+Version: 1.1-14
+Date: 2010-04-08
+
+* updated listWrappers() to default to printing both prediction and screening algorithms
+* added SL.mean
+* added stratifyCV argument to SuperLearner and CV.SuperLearner.  if TRUE, allows for stratified cross-validation splits for a binary outcome.  The proportion with Y = 1 should be roughly equally balanced across all folds.  Currently only implemented for binary outcome (family = binomial()) and no id variable.
+* cross-validation fold creation is now handled in a new function, CVFolds().  This function output a list with V elements containing the row numbers for the corresponding validation split.  The function is used internally by SuperLearner and CV.SuperLearner.
+* SuperLearner now has a default newX = NULL, and will default to newX = X if not set in the function call.
+
+------------------------
+Version: 1.1-13
+Date: 2010-04-06
+
+* added summary.CV.SuperLearner
+* added obsWeights to some of the prediction algorithms
+* Switch from ChangeLog to NEWS and added SuperLearnerNews()
+
+------------------------
+Version: 1.1-12
+Date: 2010-04-06
+
+* implemented observation weights in loss functions.  Weights must be known a priori, they are not estimated in the SuperLearner.
+* changed NNLS to use the solve.QP instead of nnls (since we added the weights)
+* both NNLS and NNloglik now use the weights argument.
+* the name of the optimization functions has changed to be internal functions.  .NNLS() and .NNloglik()
+
+------------------------
+Version: 1.1-11
+Date: 2010-04-06
+
+* added screen.glmnet()
+
+------------------------
+Version: 1.1-10
+Date: 2010-04-06
+
+* added screen.corP() and screen.corRank()
+* adapted .listPvalueGLM() to use cor.test() if family = gaussian to increase speed
+* added print and coef methods for CV.SuperLearner
+* added control.rpart() to the SL.bagging wrapper

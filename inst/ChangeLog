@@ -1,0 +1,43 @@
+--- Switched to using NEWS instead of ChangeLog ---
+
+use SuperLearnerNews() to see changes (will open the NEWS file)
+
+
+2010-04-05:
+- added summary.CV.SuperLearner
+- added obsWeights to some of the prediction algorithms
+- Switch from ChangeLog to NEWS and added SuperLearnerNews()
+
+2010-03-30:
+- implemented observation weights in loss functions.  Weights must be known a priori, they are not estimated in the SuperLearner.
+- changed NNLS to use the solve.QP instead of nnls (since we added the weights)
+- both NNLS and NNloglik now use the weights argument.
+- the name of the optimization functions has changed to be internal functions.  .NNLS() and .NNloglik()
+
+2010-02-28:
+- added screen.glmnet()
+
+2010-02-23:
+- fixed splits with id in CV.SuperLearner
+
+2010-02-22:
+- added screen.corP() and screen.corRank()
+- adapted .listPvalueGLM() to use cor.test() if family = gaussian to increase speed
+
+2010-02-17:
+- added print and coef methods for CV.SuperLearner
+
+2010-02-08:
+- added control.rpart() to the SL.bagging wrapper
+
+2010-01-21:
+- added SL.bagTree
+
+2010-01-20:
+- added SL.bagging and SL.loess
+
+2009-12-07:
+- added SL.bart
+
+2009-10-13:
+- added tryCatch() for screening and library algorithms
