@@ -17,7 +17,7 @@ SL.earth <- function(Y.temp, X.temp, newX.temp, family, obsWeights, id, degree =
 }
 
 # 
-predict.SL.template <- function(object, newdata, family, X=NULL, Y=NULL,...) {
+predict.SL.earth <- function(object, newdata, family, X=NULL, Y=NULL,...) {
 	tryCatch(require(earth), warning = function(...) {
 		stop("you have selected earth as a library algorithm but do not have the earth package installed")
 	})
