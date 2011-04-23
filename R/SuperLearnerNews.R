@@ -1,3 +1,3 @@
 SuperLearnerNews <- function(...) {
-	RShowDoc("NEWS", package = "SuperLearner", ...)
+	RShowDoc("NEWS", package = "SuperLearnerOld", ...)
 }
