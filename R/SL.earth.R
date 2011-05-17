@@ -21,6 +21,6 @@ predict.SL.earth <- function(object, newdata, family, X=NULL, Y=NULL,...) {
 	tryCatch(require(earth), warning = function(...) {
 		stop("you have selected earth as a library algorithm but do not have the earth package installed")
 	})
-	out <- predict(object$object, newdata = newdata, type = "repsonse")
+	out <- predict(object$object, newdata = newdata, type = "response")
 	return(out)
 }
