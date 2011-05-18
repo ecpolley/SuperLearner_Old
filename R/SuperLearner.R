@@ -201,7 +201,7 @@ SuperLearner <- function(Y, X, newX = NULL, SL.library, V = 20, shuffle=TRUE, ve
 	
 	# clean up when errors in library
 	if(sum(errorsInCVLibrary) > 0) {
-		getweights$cv.risk[, as.logical(errorsInCVLibrary)] <- NA
+		getweights$cv.risk[as.logical(errorsInCVLibrary)] <- NA
 	}
 	final <- list(call=call, cand.names=cand.names, SL.library=library, SL.predict=getPred$SL.pred.update, init.coef=init.coef, coef=update.coef, library.predict=predY, newZ=newZ, cv.risk=getweights$cv.risk, family=family, fit.library=fit.library, id=id, namesX=namesX, DATA.split=DATA.split, method=method, whichScreen=whichScreen, trim.logit=trim.logit, errorsInCVLibrary = errorsInCVLibrary, errorsInLibrary = errorsInLibrary, obsWeights = obsWeights)
 	class(final) <- c("SuperLearner")
