@@ -7,7 +7,7 @@
 SL.glmnet <- function(Y.temp, X.temp, newX.temp, family, obsWeights, glmnet.alpha=1, K = 10, ...){
 	tryCatch(require(glmnet), warning = function(...){ stop("you have selected glmnet as a library algorithm but do not have the glmnet package installed")})
 	fit.first <- glmnet(x=as.matrix(X.temp), y=Y.temp, family=as.character(family)[1], alpha=glmnet.alpha, weights = obsWeights)
-	cv.net.fit <- SuperLearner:::.cv.glmnet(x=as.matrix(X.temp), y=Y.temp, K=K, lambda=fit.first$lambda, alpha=glmnet.alpha, family=as.character(family)[1], obsWeights = obsWeights)
+	cv.net.fit <- SuperLearnerOld:::.cv.glmnet(x=as.matrix(X.temp), y=Y.temp, K=K, lambda=fit.first$lambda, alpha=glmnet.alpha, family=as.character(family)[1], obsWeights = obsWeights)
 	min.lambda <- cv.net.fit$lambda[which.min(cv.net.fit$cv)]
 	out <- predict(fit.first, newx=as.matrix(newX.temp), s=min.lambda, type="response")
 	fit <- list(object=fit.first, s=min.lambda, cv.net.fit=cv.net.fit)
