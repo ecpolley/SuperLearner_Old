@@ -9,7 +9,7 @@ Computes the V-fold cross-validated hazard estimation using binary Super Learner
 V-fold Cross validated hazard estimation using binary Super Learner
 }
 \usage{
-CV.SuperLearner.hazard(N.delta, n.controls = 1, time.df = 5, time, X, SL.library, outside.V = 10, inside.V = 10, shuffle = FALSE, verbose = FALSE, family = binomial(), method="NNLS", id = NULL, save.fit.library = TRUE, trim.logit=0.0001, discreteTime = TRUE, obsWeights=NULL)
+CV.SuperLearner.hazard(N.delta, n.controls=1, time.df=5, time, X, SL.library, outside.V=20, inside.V = 20, shuffle=FALSE, verbose=FALSE, family=binomial(), method="NNLS", id=NULL, save.fit.library=FALSE, trim.logit=0.0001, discreteTime = TRUE, obsWeights = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

@@ -8,7 +8,7 @@ latex method for summary.CV.SuperLearner
 convert output from summary.CV.SuperLearner into latex table.  Method for the \code{\link[Hmisc]{latex}} function in \code{Hmisc}
 }
 \usage{
-\method{latex}{summary.CV.SuperLearner}(object, subset = TRUE, report = c("Risk", "SE", "Min", "Max"), addNamesTable = NULL, booktabs = TRUE, digits = 3, rowname = NULL, ...)
+\method{latex}{summary.CV.SuperLearner}(object, subset = TRUE, report = c("Risk", "SE", "Min", "Max"), addNamesTable = NULL, booktabs = TRUE, dec = 3, rowname = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -25,7 +25,7 @@ Additional naming matrix.  This should be a two column character matrix.  The fi
   \item{booktabs}{
 passed to \code{latex}
 }
-  \item{digits}{
+  \item{dec}{
 passed to \code{latex}
 }
   \item{rowname}{
